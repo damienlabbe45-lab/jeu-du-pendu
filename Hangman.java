@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Hangman {
 
     public static String inputString(Scanner input){
-        System.out.println("Veillez une lettre");
+        System.out.println("Veillez choisir un caractère");
         return input.nextLine().toLowerCase();
     }
 
