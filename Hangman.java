@@ -74,7 +74,7 @@ public class Hangman {
         System.out.println("il vous reste "+ (10 - error));
         } 
        }
-       if(error ==10)System.out.println("Vous avez perdu et pendu à un poteau après avoir été couvert de gudron et de plumes.... il fallait" +
+       if(error ==10)System.out.println("Vous avez perdu et pendu à un poteau après avoir été couvert de gudron et de plumes.... \nil fallait" +
         "trouver le mot " + word.substring(0,1).toUpperCase()+word.substring(1)
        ) ;
        else System.out.println("Vous avez gagné avec " + error + " erreurs !!!!!!!! \n Vous avez trouvé le mot " + 
