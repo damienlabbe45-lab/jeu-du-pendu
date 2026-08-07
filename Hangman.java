@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -31,7 +32,44 @@ public class Hangman {
         return words[random].toLowerCase();
     }
 
+    public static int[] findIndexs(char letter, String word){
+        int number = 0;
+        int index = 0;
+        int[] indexs = new int[word.length()];
+        for(char letters:(char[]) word){
+            if(letter == letters){
+                indexs[index] = number;
+                index++;
+            }
+                number++;
 
+        }
+    }
+
+    public static void hang(Scanner input){
+       String word = randomWords();
+       char[] letters = new char[word.length()];
+       Arrays.fill(letters, '_');
+       int error = 0;
+       char[] notWords = new char[10];
+       while(word.equals(letters.toString()) && error < 10){
+        System.out.println("voici la liste des lettres que vous avez proposés qui ne sont pas dans le mot"+ notWords);
+        System.out.println(letters.toString());
+        char letter = inputChoice(input);
+        if(word.contains("" + letter)){
+            int [] numbers = findIndexs(letter, word);
+            for(int number: numbers){
+                letters[number] = letter;
+            
+            }
+        }else{
+            notWords[error] = letter;
+            error++;
+
+        System.out.println("il vous reste "+ (10 - error));
+        } 
+       }
+    }
 
     public static void main(String[] args) {
         if( args.length > 0) throw new IllegalArgumentException(" pas d'arguments");
