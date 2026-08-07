@@ -13,7 +13,7 @@ public class Hangman {
         String letter = inputString(input);
 
         while(letter.length() != 1)letter =inputString(input);
-        
+
         return letter.toCharArray()[0];
     }
 
@@ -24,12 +24,12 @@ public class Hangman {
                               "Treaty", "Oblige", "Seth", "Théménos", "Cyrus", "Hephaïstos", "Cupidon", "Zorro",
                               "Lefantôme", "Xana", "Harry", "Potter", "Tsuki", "Onyx", "Wellan", "Nashoba", "Aelita",
                               "Rhea", "Jaden", "Yugi", "Tincel", "Einstein", "Anankos", "Flamel", "Daraen", "Ike",
-                              "Vulcain", "Demeter", "Ceres", "Bioninformatique", "Carter", "Sephiroth", "Owain", "Jack", 
+                              "Vulcain", "Demeter", "Ceres", "Bioinformatique", "Carter", "Sephiroth", "Owain", "Jack", 
                               "Harikeñ", "Catasfiore", "Vaan", "Balthier", "Agnès", "Casty", "Osvald", "Muriel",
                               "Anatiel", "Zéphilia", "Tamriel", "Wuunferth", "Yann", "Aucun", "Stole", "Arthur",
                               "Apollon", "Diane", "Artemis", "Dianthus", "Jedusort", "William", "Ulrich", "Joséphiroth"
                               , "Jim", "Morales", "Makoto", "Naegi", "Celica", "Yuri", "Moon", "Bernadetta", "Seiros",
-                            "Mathilda", "Python", "Java","Aiosqlite","Fortuna","Monopoly", "Roleplay","Lancer"} ;
+                            "Mathilda", "Python", "Java","Aiosqlite","Fortuna","Monopoly", "Roleplay","Lancer","Dévelopeur"} ;
         int random = ThreadLocalRandom.current().nextInt(0, words.length);
         return words[random].toLowerCase();
     }
