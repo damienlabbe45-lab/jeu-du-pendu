@@ -13,7 +13,7 @@ public class Hangman {
         String letter = inputString(input);
 
         while(letter.length() != 1)letter =inputString(input);
-        
+
         return letter.toCharArray()[0];
     }
 
@@ -56,8 +56,9 @@ public class Hangman {
        char[] letters = new char[word.length()];
        Arrays.fill(letters, '_');
        int error = 0;
-       char[] notWords = new char[10];
-       while(!word.equals(new String(letters)) && error < 10){
+       int NUMBERMAX = 15;
+       char[] notWords = new char[NUMBERMAX];
+       while(!word.equals(new String(letters)) && error < NUMBERMAX){
         System.out.println("voici la liste des lettres que vous avez proposés qui ne sont pas dans le mot "+ Arrays.toString(notWords));
         System.out.println(new String(letters));
         char letter = inputChoice(input);
@@ -74,12 +75,12 @@ public class Hangman {
             notWords[error] = letter;
             error++;
 
-        System.out.println("il vous reste "+ (10 - error));
+        System.out.println("il vous reste "+ (NUMBERMAX - error));
         }
 
        }
 
-       if(error ==10)System.out.println("Vous avez perdu et pendu à un poteau après avoir été couvert de gudron et de plumes.... \nil fallait" +
+       if(error ==NUMBERMAX)System.out.println("Vous avez perdu et pendu à un poteau après avoir été couvert de gudron et de plumes.... \nil fallait" +
         " trouver le mot " + word.substring(0,1).toUpperCase()+word.substring(1)
        ) ;
 
