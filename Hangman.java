@@ -1,6 +1,18 @@
+import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Hangman {
+
+    public static String inputString(Scanner input){
+        System.out.println("Veillez une lettre");
+        return input.nextLine().toLowerCase();
+    }
+
+    public static char inputChoice(Scanner input){
+        String letter = inputString(input);
+        while(letter.length() != 1)letter =inputString(input);
+        return letter.toCharArray()[0];
+    }
 
     public static String randomWords(){
        String[] words = {"Jupiter", "Zeus", "Aphrodite", "Vénus", "Marth", "Lucina", "Mars", "Arès", "Hades",
@@ -19,7 +31,7 @@ public class Hangman {
         return words[random].toLowerCase();
     }
 
-    
+
 
     public static void main(String[] args) {
         if( args.length > 0) throw new IllegalArgumentException(" pas d'arguments");
