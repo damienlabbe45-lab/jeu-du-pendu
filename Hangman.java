@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Hangman {
 
     public static String inputString(Scanner input){
-        System.out.println("Veillez choisir un caractère");
+        System.out.println("Veuillez choisir un caractère");
         return input.nextLine().toLowerCase();
     }
 
@@ -36,7 +36,8 @@ public class Hangman {
         int number = 0;
         int index = 0;
         int[] indexs = new int[word.length()];
-        for(char letters:(char[]) word){
+        Arrays.fill(indexs,-20);
+        for(char letters:word.toCharArray()){
             if(letter == letters){
                 indexs[index] = number;
                 index++;
@@ -44,6 +45,7 @@ public class Hangman {
                 number++;
 
         }
+        return indexs;
     }
 
     public static void hang(Scanner input){
@@ -52,14 +54,17 @@ public class Hangman {
        Arrays.fill(letters, '_');
        int error = 0;
        char[] notWords = new char[10];
-       while(word.equals(letters.toString()) && error < 10){
-        System.out.println("voici la liste des lettres que vous avez proposés qui ne sont pas dans le mot"+ notWords);
-        System.out.println(letters.toString());
+       while(!word.equals(new String(letters)) && error < 10){
+        System.out.println("voici la liste des lettres que vous avez proposés qui ne sont pas dans le mot "+ Arrays.toString(notWords));
+        System.out.println(new String(letters));
         char letter = inputChoice(input);
         if(word.contains("" + letter)){
             int [] numbers = findIndexs(letter, word);
             for(int number: numbers){
-                letters[number] = letter;
+                if(number != -20){
+                    letters[number] = letter;
+                }
+                
             
             }
         }else{
@@ -69,9 +74,15 @@ public class Hangman {
         System.out.println("il vous reste "+ (10 - error));
         } 
        }
+       if(error ==10)System.out.println("Vous avez perdu et pendu à un poteau après avoir été couvert de gudron et de plumes....");
+       else System.out.println("Vous avez gagné avec " + error + " erreurs !!!!!!!!");
     }
 
     public static void main(String[] args) {
         if( args.length > 0) throw new IllegalArgumentException(" pas d'arguments");
+        Scanner input = new Scanner(System.in);
+        hang(input);
+        input.close();
+        System.out.println("Merci d'avoir jouer");
     }
 }
