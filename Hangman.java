@@ -11,7 +11,9 @@ public class Hangman {
 
     public static char inputChoice(Scanner input){
         String letter = inputString(input);
+
         while(letter.length() != 1)letter =inputString(input);
+        
         return letter.toCharArray()[0];
     }
 
@@ -37,14 +39,15 @@ public class Hangman {
         int index = 0;
         int[] indexs = new int[word.length()];
         Arrays.fill(indexs,-20);
+
         for(char letters:word.toCharArray()){
             if(letter == letters){
                 indexs[index] = number;
                 index++;
             }
                 number++;
-
         }
+
         return indexs;
     }
 
@@ -58,25 +61,28 @@ public class Hangman {
         System.out.println("voici la liste des lettres que vous avez proposés qui ne sont pas dans le mot "+ Arrays.toString(notWords));
         System.out.println(new String(letters));
         char letter = inputChoice(input);
+
         if(word.contains("" + letter)){
             int [] numbers = findIndexs(letter, word);
             for(int number: numbers){
                 if(number != -20){
                     letters[number] = letter;
                 }
-                
-            
             }
+
         }else{
             notWords[error] = letter;
             error++;
 
         System.out.println("il vous reste "+ (10 - error));
-        } 
+        }
+
        }
+
        if(error ==10)System.out.println("Vous avez perdu et pendu à un poteau après avoir été couvert de gudron et de plumes.... \nil fallait" +
         "trouver le mot " + word.substring(0,1).toUpperCase()+word.substring(1)
        ) ;
+
        else System.out.println("Vous avez gagné avec " + error + " erreurs !!!!!!!! \n Vous avez trouvé le mot " + 
        word.substring(0,1).toUpperCase()+word.substring(1));
     }
