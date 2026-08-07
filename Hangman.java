@@ -80,7 +80,7 @@ public class Hangman {
        }
 
        if(error ==10)System.out.println("Vous avez perdu et pendu à un poteau après avoir été couvert de gudron et de plumes.... \nil fallait" +
-        "trouver le mot " + word.substring(0,1).toUpperCase()+word.substring(1)
+        " trouver le mot " + word.substring(0,1).toUpperCase()+word.substring(1)
        ) ;
 
        else System.out.println("Vous avez gagné avec " + error + " erreurs !!!!!!!! \n Vous avez trouvé le mot " + 
@@ -89,9 +89,9 @@ public class Hangman {
 
     public static void main(String[] args) {
         if( args.length > 0) throw new IllegalArgumentException(" pas d'arguments");
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in, "UTF8");
         hang(input);
         input.close();
-        System.out.println("Merci d'avoir jouer");
+        System.out.println("Merci d'avoir joué");
     }
 }
