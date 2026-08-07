@@ -13,7 +13,7 @@ public class Hangman {
         String letter = inputString(input);
 
         while(letter.length() != 1)letter =inputString(input);
-
+        
         return letter.toCharArray()[0];
     }
 
@@ -89,7 +89,7 @@ public class Hangman {
 
     public static void main(String[] args) {
         if( args.length > 0) throw new IllegalArgumentException(" pas d'arguments");
-        Scanner input = new Scanner(System.in, "UTF8");
+        Scanner input = new Scanner(System.in, System.getProperty("sun.stdin.encoding","CP850"));
         hang(input);
         input.close();
         System.out.println("Merci d'avoir joué");
