@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.concurrent.ThreadLocalRandom;
+import java.security.SecureRandom;
+import java.util.Random;
 
 public class Hangman {
 
@@ -30,7 +31,8 @@ public class Hangman {
                               "Apollon", "Diane", "Artemis", "Dianthus", "Jedusort", "William", "Ulrich", "Joséphiroth"
                               , "Jim", "Morales", "Makoto", "Naegi", "Celica", "Yuri", "Moon", "Bernadetta", "Seiros",
                             "Mathilda", "Python", "Java","Aiosqlite","Fortuna","Monopoly", "Roleplay","Lancer","Dévelopeur"} ;
-        int random = ThreadLocalRandom.current().nextInt(0, words.length);
+        Random rand = new SecureRandom();
+        int random = rand.nextInt(words.length);
         return words[random].toLowerCase();
     }
 
